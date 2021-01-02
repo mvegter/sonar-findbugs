@@ -1,9 +1,9 @@
 name: Update property for sonar-update-center
 
 on:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - actions-test
 
 jobs:
   sonar-update-center:
@@ -15,9 +15,10 @@ jobs:
           description: Use SpotBugs 4.2.0, sb-contrib 7.4.7, and findsecbugs 1.11.0
           minimal-supported-sq-version: 7.9
           latest-supported-sq-version: LATEST
-          changelog-url: https://github.com/spotbugs/sonar-findbugs/releases/tag/${{ github.event.release.tag_name }}
-          download-url: https://repo.maven.apache.org/maven2/com/github/spotbugs/sonar-findbugs-plugin/${{ github.event.release.tag_name }}/sonar-findbugs-plugin-${{ github.event.release.tag_name }}.jar # The URL to download your plugin
-          public-version: ${{ github.event.release.tag_name }}
-          sonar-cloud-url: https://sonarcloud.io/dashboard?branch=${{ github.event.release.tag_name }}&id=com.github.spotbugs%3Asonar-findbugs-plugin
+          changelog-url: https://github.com/spotbugs/sonar-findbugs/releases/tag/4.0.3
+          download-url: https://repo.maven.apache.org/maven2/com/github/spotbugs/sonar-findbugs-plugin/4.0.3/sonar-findbugs-plugin-4.0.3.jar
+          public-version: 4.0.3
+          sonar-cloud-url: https://sonarcloud.io/dashboard?branch=4.0.3&id=com.github.spotbugs%3Asonar-findbugs-plugin
           github-token: ${{ secrets.PAT_TO_FORK }}
+          discourse-username: KengoTODA
           discourse-api-key: ${{ secrets.DISCOURSE_API_KEY }}
